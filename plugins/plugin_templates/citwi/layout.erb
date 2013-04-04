@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+  <%= NewRelic::Agent.browser_timing_header rescue "" %>
+  <meta charset="utf-8">
+  <title>H3LIUM SLOMO</title>
+  <meta property="og:title" content="TITLE"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:description" content=""/>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/ie.css?v=0" />
+<![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+  <%= javascript_include_tag "/javascripts/application.js"%>
+</head>
+<body onload="resizeMyWindow()">
+  <div id="wrapper">
+    <%= yield %>
+  </div>
+  <div id="fb-root"></div>
+  <script src="https://connect.facebook.net/en_US/all.js"></script>
+  <script>
+    FB.init({
+      appId : "<%= FB_APP_ID %>",
+      status : true,
+      cookie : true,
+      xfbml  : true
+    });
+
+    var fb_page = "<%= FB_PAGE %>?sk=app_<%= FB_APP_ID %>";
+
+  </script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <%= NewRelic::Agent.browser_timing_footer rescue "" %>
+</body>
+</html>

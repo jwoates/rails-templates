@@ -1,0 +1,12 @@
+development:
+  auth_key : ""
+
+test:
+  auth_key : ""
+
+production:
+  auth_key : ""
+
+staging:
+  auth_key : ""
+
